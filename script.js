@@ -22,8 +22,8 @@ function heartPosition(t) {
     Math.cos(4 * t);
 
   return {
-    x: width / 2 + x * 18,
-    y: height / 2 - y * 18 - 40
+    x: width / 2 + x * 15,
+    y: height / 3 - y * 15
   };
 }
 
@@ -72,7 +72,8 @@ class Particle {
 
 function initParticles() {
   particles = [];
-  for (let i = 0; i < 900; i++) {
+
+  for (let i = 0; i < 800; i++) {
     particles.push(new Particle());
   }
 }
@@ -98,9 +99,15 @@ const carta = document.getElementById("carta");
 btnCarta.addEventListener("click", () => {
   carta.style.display = "block";
   btnCarta.style.display = "none";
+
+  setTimeout(() => {
+    carta.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 150);
 });
 
-/* CAMBIA ESTA FECHA POR EL DÍA QUE EMPEZARON */
 const fechaInicio = new Date("2025-06-06T00:00:00");
 
 function actualizarContador() {
